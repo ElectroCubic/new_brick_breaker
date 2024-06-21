@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx1wgyca4him6"]
+
+[ext_resource type="Texture2D" uid="uid://bjjsgnt804s4u" path="res://graphics/paddle/paddle.png" id="1_01pmi"]
+[ext_resource type="Script" path="res://scenes/paddle/paddle.gd" id="2_fhw6a"]
+[ext_resource type="PackedScene" uid="uid://b6p7p72laxec3" path="res://scenes/ui/pointer.tscn" id="3_7ogok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1kk3"]
+size = Vector2(64, 256)
+
+[node name="Paddle" type="CharacterBody2D"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+rotation = 1.5708
+collision_mask = 30
+motion_mode = 1
+script = ExtResource("2_fhw6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_01pmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k1kk3")
+
+[node name="Pointer" parent="." instance=ExtResource("3_7ogok")]
+rotation = -1.5708

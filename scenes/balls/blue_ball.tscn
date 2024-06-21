@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6cktks30r05q"]
+
+[ext_resource type="Script" path="res://scenes/balls/blue_ball.gd" id="1_g15lu"]
+[ext_resource type="Texture2D" uid="uid://bitw1padavtix" path="res://graphics/ball/ball_blue_small.png" id="2_tptng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43f3c"]
+radius = 16.1245
+
+[node name="BlueBall" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 31
+motion_mode = 1
+platform_on_leave = 1
+script = ExtResource("1_g15lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tptng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_43f3c")

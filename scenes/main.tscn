@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://8fjd6qa50qn2"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_adqke"]
+[ext_resource type="Script" path="res://scenes/ui/screen_size.gd" id="2_fbvwy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4hd0"]
+font_size = 80
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_adqke")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_fbvwy")
+
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu"]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 279.0
+offset_right = 707.0
+offset_bottom = 389.0
+text = "Brick Breaker"
+label_settings = SubResource("LabelSettings_e4hd0")
+
+[node name="play" type="Button" parent="CanvasLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -57.5
+offset_right = 394.0
+offset_bottom = 57.5
+grow_vertical = 2
+text = "PLAY"
+
+[node name="quit" type="Button" parent="CanvasLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = 78.5
+offset_right = 394.0
+offset_bottom = 193.5
+grow_vertical = 2
+text = "QUIT"
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/quit" to="." method="_on_quit_pressed"]
